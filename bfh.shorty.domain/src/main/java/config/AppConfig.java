@@ -2,10 +2,7 @@ package config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import service.Consumer;
-import service.ConsumerService;
-import service.Producer;
-import service.ProducerService;
+import service.*;
 
 
 /**
@@ -25,5 +22,11 @@ public class AppConfig {
         producerService.setProduct("an apple");
 
         return producerService;
+    }
+
+    @Bean
+    public StockService stockService() {
+        StockService stockService = new StockServiceImpl();
+        return stockService;
     }
 }
