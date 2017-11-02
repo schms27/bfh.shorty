@@ -1,11 +1,14 @@
 package service;
 
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by simon.schmid on 02.11.2017.
  */
+@Service
 public class StockServiceImpl implements StockService {
     private  List<String> products = new ArrayList<>();
 
