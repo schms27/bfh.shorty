@@ -13,36 +13,33 @@ import java.util.List;
  * Created by simon.schmid on 02.11.2017.
  */
 @Controller
+@RequestMapping("/products")
 public class StockRestController {
     @Autowired
     StockService stockService;
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
-    public @ResponseBody
-    List<String> listProducts() {
-        return new ArrayList<String>(stockService.listProducts());
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody List<String> listProducts() {
+        return stockService.listProducts();
     }
 
-    @RequestMapping(value = "/products/{index}", method = RequestMethod.GET)
-    public @ResponseBody String getById(@PathVariable int index) {
+    @RequestMapping(value = "{index}", method = RequestMethod.GET)
+    public @ResponseBody String getProduct(@PathVariable int index) {
         return stockService.getProduct(index);
     }
 
-    @RequestMapping(value = "/product", method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.OK)
-    public void addProduct(@RequestBody String product) {
-        stockService.addProduct(product);
+    @RequestMapping(method = RequestMethod.POST)
+    public @ResponseBody String addProduct(@RequestBody String product) {
+        return stockService.addProduct(product);
     }
 
-    @RequestMapping(value = "/product/{index}", method = RequestMethod.DELETE)
-    @ResponseStatus(HttpStatus.OK)
-    public void deleteProduct(@PathVariable int index) {
+    @RequestMapping(value = "{index}", method = RequestMethod.DELETE)
+    public @ResponseBody void deleteProduct(@PathVariable int index) {
         stockService.deleteProduct(index);
     }
 
-    @RequestMapping(value = "/product/{index}", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable int index,@RequestBody String product) {
+    @RequestMapping(value = "{index}", method = RequestMethod.PUT)
+    public @ResponseBody void updateProduct(@PathVariable int index,@RequestBody String product) {
         stockService.updateProduct(index, product);
     }
 }

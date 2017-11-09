@@ -1,29 +1,28 @@
+package web;
+
 import config.AppConfig;
 import config.ServletConfig;
+import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
  * Created by simon.schmid on 02.11.2017.
  */
-public class RestApplication extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class RestApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+    @Nullable
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        Class[] classes = new Class[1];
-        classes[0] = AppConfig.class;
-        return classes;
+        return new Class[]{AppConfig.class};
     }
-
+    @Nullable
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        Class[] classes = new Class[1];
-        classes[0] = ServletConfig.class;
-        return classes;
+        return new Class[] {ServletConfig.class};
     }
 
     @Override
     protected String[] getServletMappings() {
-        String[] mapping = new String[1];
-        mapping[0] = "/rest/*";
-        return mapping;
+        return new String[]{"/rest/*"};
     }
 }
+
