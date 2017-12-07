@@ -13,6 +13,6 @@ Unter Microservice-Architektur versteht man generell eine komplexe Applikation, 
 
 ![alt text][p1]
 
-[p1]: https://github.com/schms27/bfh.shorty/edit/master/documentation/images/microservices_arch_1.png "Picture 1: Microservices Architecture"
+[p1]: https://github.com/schms27/bfh.shorty/documentation/images/microservices_arch_1.png "Picture 1: Microservices Architecture"
 
-[p2]: https://github.com/schms27/bfh.shorty/edit/master/documentation/images/microservices_arch_2.png "Picture 2: Microservices Architecture with Spring Cloud"
+[p2]: https://github.com/schms27/bfh.shorty/documentation/images/microservices_arch_2.png "Picture 2: Microservices Architecture with Spring Cloud"
