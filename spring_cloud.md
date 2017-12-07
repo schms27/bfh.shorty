@@ -52,8 +52,11 @@ Da die IP Adressen der einzelnen Dienste nicht als fix angenommen werden können
 #### Auth Service
 
 
+#### Referenzen
 
-
+Webartikel zu Spring Cloud [DZone Artikel][r1]
 
 [p1]: documentation/images/microservices_arch_1.png?raw=true "Picture 1: Microservices Architecture"
 [p2]: documentation/images/microservices_arch_2.png?raw=true "Picture 2: Microservices Architecture with Spring Cloud"
+
+[r1]: https://dzone.com/articles/microservice-architecture-with-spring-cloud-and-do
