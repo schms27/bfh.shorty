@@ -41,12 +41,24 @@ Wir wollen kurz auf die wichtigsten Bestandteile von Spring Cloud eingehen:
 #### Eureka
 Da die IP Adressen der einzelnen Dienste nicht als fix angenommen werden können, muss ein Hilfsdienst bestehen, bei dem sich die Services registrieren können und der die Requests an den richtigen Empfänger weiterleitet. Dies funktioniert auch, wenn die einzelnen Dienste unter dynamisch ändernden IP-Adressen erreichbar sind.
 
+##### Beispiel
+Eureka Server:
 ```java
   @SpringBootApplication
   @EnableEurekaServer
   public class ServiceDiscovery {
       public static  void main(String[] args){
           SpringApplication.run(ServiceDiscovery.class);
+      }
+  }
+```
+Eureka Client:
+```java
+  @SpringBootApplication
+  @EnableDiscoveryClient
+  public class DomainService {
+      public static  void main(String[] args){
+          SpringApplication.run(DomainService.class, args);
       }
   }
 ```
