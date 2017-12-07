@@ -15,15 +15,20 @@ Unter Microservice-Architektur versteht man generell eine komplexe Applikation, 
 ![img architecture][p1]
 
 #### Vorteile gegenüber «monolithisch» gebauten Applikationen
-Durch die Unabhängigkeit der einzelnen Services voneinander, ist es möglich, diese je nach Anforderung an die jeweilige Aufgabe des Services technisch komplett verschieden aufzubauen und unabhängig voneinander weiterzuentwickeln. 
-Dazu bietet es sich an, ab einer gewissen Grösse für jeden Service ein eigenes Entwickler- und Operationsteam zu haben. Dadurch kann das benötigte Know-How konzentriert werden und die Weiterentwicklung, Wartung und Betrieb des Services liegt immer in Händen von Spezialisten. 
+Durch die Unabhängigkeit der einzelnen Services voneinander, ist es möglich, diese je nach Anforderung an die jeweilige Aufgabe des Services technisch komplett verschieden aufzubauen und unabhängig voneinander weiterzuentwickeln.
+
+Dazu bietet es sich an, ab einer gewissen Grösse für jeden Service ein eigenes Entwickler- und Operationsteam zu haben. Dadurch kann das benötigte Know-How konzentriert werden und die Weiterentwicklung, Wartung und Betrieb des Services liegt immer in Händen von Spezialisten.
+
 Ein einzelner Dienst ist im gesamten Applikationskontext immer relativ klein und kann so bestmöglich auf die zu erfüllende Aufgabe zugeschnitten werden.
 
 #### Neue Herausforderungen
 Weil die einzelnen Microservices nur über REST miteinander kommunizieren, kann es sein, dass sich die Latenz des Netzwerks spürbar auf die Performance auswirkt. Dies kommt natürlich besonders dann zum Tragen, wenn die Services physisch auf weit auseinanderliegenden Servern laufen.
+
 Das Load-Balancing von Microservices ist herausfordernd und kaum manuell zu bewältigen, dazu braucht es Hilfstools, die Last automatisch zwischen den Services verteilen.
+
 Das Monitoring von Microservices ist komplexer als bei monolithischen Applikationen und braucht ebenfalls Hilfstools.
 Entwickler werden zu devops, müssen sich also entsprechend in neue Arbeitsfelder einarbeiten und zurechtfinden.
+
 Die Fehlertoleranz und ‘Selbstheilung’ muss ebenfalls durch Hilfsdienste verbessert werden, damit bei Versagen eines einzelnen Dienstes nicht das ganze System versagt bzw. sich möglichste schnell wieder regeneriert.
 
 ### Spring Cloud
