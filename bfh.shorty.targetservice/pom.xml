@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>bfh.shorty</groupId>
-	<artifactId>userservice</artifactId>
+	<artifactId>targetservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>userservice</name>
-	<description>Userservice</description>
+	<name>targetservice</name>
+	<description>Service for Target Domain Model</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

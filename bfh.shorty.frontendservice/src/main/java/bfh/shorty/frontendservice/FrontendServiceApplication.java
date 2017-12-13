@@ -1,14 +1,16 @@
-package bfh.shorty.userservice;
+package bfh.shorty.frontendservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class UserServiceApplication {
+@EnableZuulProxy
+public class FrontendServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserServiceApplication.class, args);
+		SpringApplication.run(FrontendServiceApplication.class, args);
 	}
 }

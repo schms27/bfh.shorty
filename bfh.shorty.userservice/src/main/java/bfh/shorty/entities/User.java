@@ -8,22 +8,23 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
-
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
 
-    private String name;
-    private String email;
-    private String password;
 
-    public String getName() {
-        return name;
+    private String username;
+    private String email;
+    private int paswordHash;
+
+
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -34,11 +35,11 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public int getPaswordHash() {
+        return paswordHash;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPaswordHash(int paswordHash) {
+        this.paswordHash = paswordHash;
     }
 }
