@@ -111,27 +111,38 @@ Zudem kann das System in "Bulkheads" unterteilt werden. Dies sind Gruppen von Re
 
 #### [Turbine][r5]
 
-Turbine ist eine ursprünglich ebenfalls von Netflix entwickelte Bibliothek um die Metriken aller laufenden Dienste zusammenzutragen, auszuwerten und einem Dashboard (Hystrix-Dashboard) bereitzustellen. Der Dschungel von Services in einer grossen Microservice App ist unüberschaubar und Turbine setzt genau da an, um aus dem riesigen Strom von Daten die relevanten herauszuholen und anzuziegen, so dass der DevOps stets Herr der Lage bleibt.
+Turbine ist eine ursprünglich ebenfalls von Netflix entwickelte Bibliothek um die Metriken aller laufenden Dienste (im JSON Format) zusammenzutragen und auszuwerten. Der Dschungel von Services in einer grossen Microservice App ist unüberschaubar und Turbine setzt genau da an, um aus dem riesigen Strom von Daten die relevanten Informationen herauszuholen und anzuzeigen, so dass der DevOp stets Herr der Lage bleibt.
 
-#### Config Service
+#### [Config Service][r6]
 
-#### Auth Service
+Der Config-Service von Spring Cloud bietet sowohl server- als auch clientseitig eine REST-API, wo sich die Services die benötigten Einstellungen zentralisiert abholen können. Dies erleichtert die Konfiguration besonders bei grossen Systemen extrem, da Anpassungen in der Config an einer zentralisierten Stelle vorgenommen werden können.
 
 
+#### [Security and Auth Service][r8]
+
+Spring Cloud bietet eigene Security und (O)Authentication Services an, um die Benutzerverwaltung und Sicherheit von Microservice-Applikationen zu erleichtern und zu verbessern.
+
+#### Ausblick
+
+Ausser den erwähnten Services von Spring Cloud gibt es noch wesentlich mehr Tools, die beispielsweise das clientseitige Loadbalancing (Ribbon, Feign), oder zusätzliche Auswertungsmöglichkeiten (z.b. Elk Stack) bieten. Wir gehen an dieser Stelle jedoch nicht weiter darauf ein, da diese Teile in der Vorlesung später erst abgedeckt werden.
+
+---
 #### Referenzen
 ##### Literatur & Web
-Webartikel zu Spring Cloud [DZone Artikel][r1]
-Webartikel zu Hystrix [innoQ Artikel][r6]
+[Spring Cloud Projektwebsite][r7]
+Webartikel zu Spring Cloud [DZone Artikel][r1]  
+Webartikel zu Hystrix [innoQ Artikel][r9]
 [Eureka Wiki][r4]  
 [Zuul Wiki][r2]  
 [Hystrix Wiki][r3]  
 [Turbine Wiki][r5]  
+[Spring Cloud Config][r6]  
+[Spring Cloud Security][r8]
 
 ##### Bilder
 Bild 1: Microservices Architecture [Link][r1]  
 Bild 2: Microservices Architektur mit Spring Cloud [Link][r1]  
 Bild 3: Eureka Service Dashboard (Screenshot aus Übung für Projektarbeit)
-
 
 [p1]: documentation/images/microservices_arch_1.png?raw=true "Picture 1: Microservices Architecture"
 [p2]: documentation/images/microservices_arch_2.png?raw=true "Picture 2: Microservices Architecture with Spring Cloud"
@@ -142,4 +153,7 @@ Bild 3: Eureka Service Dashboard (Screenshot aus Übung für Projektarbeit)
 [r3]: https://github.com/Netflix/Hystrix/wiki
 [r4]: https://github.com/Netflix/eureka/wiki
 [r5]: https://github.com/Netflix/Turbine/wiki
-[r6]: https://www.innoq.com/de/articles/2014/08/hystrix-artikel/
+[r9]: https://www.innoq.com/de/articles/2014/08/hystrix-artikel/
+[r6]: https://cloud.spring.io/spring-cloud-config/
+[r7]: http://projects.spring.io/spring-cloud/
+[r8]: https://cloud.spring.io/spring-cloud-security/
