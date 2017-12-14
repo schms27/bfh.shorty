@@ -18,7 +18,7 @@ Unter Microservice-Architektur versteht man generell eine komplexe Applikation, 
 #### Vorteile gegenüber «monolithisch» gebauten Applikationen
 Durch die Unabhängigkeit der einzelnen Services voneinander, ist es möglich, diese je nach Anforderung an die jeweilige Aufgabe des Services technisch komplett verschieden aufzubauen und unabhängig voneinander weiterzuentwickeln.
 
-Dazu bietet es sich an, ab einer gewissen Grösse für jeden Service ein eigenes Entwickler- und Operationsteam zu haben. Dadurch kann das benötigte Know-How konzentriert werden und die Weiterentwicklung, Wartung und Betrieb des Services liegt immer in Händen von Spezialisten.
+Dazu bietet es sich an, ab einer gewissen Grösse für jeden Service ein eigenes Entwickler- und Operationsteam zu haben. Dadurch kann das benötigte Know-How konzentriert werden und die Weiterentwicklung, Wartung und Betrieb des Services liegt immer in Händen von Spezialisten. Die Einzelnen Teams können theoretisch alle mit den Technologien arbeiten, mit denen sie am besten vertraut sind. Die Kompatibilität zu den anderen Services und ihren Technologien ist durch den Austausch über REST APIs gewährleistet.
 
 Ein einzelner Dienst ist im gesamten Applikationskontext immer relativ klein und kann so bestmöglich auf die zu erfüllende Aufgabe zugeschnitten werden.
 
@@ -44,6 +44,8 @@ Wir wollen kurz auf die wichtigsten Bestandteile von Spring Cloud eingehen:
  
 #### [Eureka][r4]
 Da die IP Adressen der einzelnen Dienste nicht als fix angenommen werden können, muss ein Hilfsdienst bestehen, bei dem sich die Services registrieren können und der die Requests an den richtigen Empfänger weiterleitet. Dies funktioniert auch, wenn die einzelnen Dienste unter dynamisch ändernden IP-Adressen erreichbar sind.
+
+So können von einem einzelnen Service auch mehrere Instanzen in einem Pool betrieben werden, um die Anfragen gleichmässig aufzuteilen (Load balancing) und auf eine andere Instanz zugegriffen werden, wenn die aktuelle nicht verfügbar oder überlastet ist.
 
 Eureka wird selber ebenfalls als Service konfiguriert und gestartet und stellt ein Web-Userinterface zur Verfügung, wo die registrierten Dienste angezeigt und verwaltet werden können. Dies ist zwar nur in vereinfachter Art und Weise möglich, bietet aber trotzdem schon einiges an Information:
 ![img registry_service_dashboard][p3]
@@ -109,7 +111,7 @@ Zudem kann das System in "Bulkheads" unterteilt werden. Dies sind Gruppen von Re
 
 #### [Turbine][r5]
 
-Turbine ist eine ursprünglich ebenfalls von Netflix entwickelte Bibliothek um die Metriken aller laufenden Dienste zusammenzutragen und auszuwerten. Der Dschungel von Services in einer grossen Microservice App ist unüberschaubar und Turbine setzt genau da an, um aus dem riesigen Strom von Daten die relevanten herauszuholen und anzuziegen, so dass der DevOps stets Herr der Lage bleibt.
+Turbine ist eine ursprünglich ebenfalls von Netflix entwickelte Bibliothek um die Metriken aller laufenden Dienste zusammenzutragen, auszuwerten und einem Dashboard (Hystrix-Dashboard) bereitzustellen. Der Dschungel von Services in einer grossen Microservice App ist unüberschaubar und Turbine setzt genau da an, um aus dem riesigen Strom von Daten die relevanten herauszuholen und anzuziegen, so dass der DevOps stets Herr der Lage bleibt.
 
 #### Config Service
 
@@ -118,7 +120,8 @@ Turbine ist eine ursprünglich ebenfalls von Netflix entwickelte Bibliothek um d
 
 #### Referenzen
 ##### Literatur & Web
-Webartikel zu Spring Cloud [DZone Artikel][r1]  
+Webartikel zu Spring Cloud [DZone Artikel][r1]
+Webartikel zu Hystrix [innoQ Artikel][r6]
 [Eureka Wiki][r4]  
 [Zuul Wiki][r2]  
 [Hystrix Wiki][r3]  
@@ -129,6 +132,7 @@ Bild 1: Microservices Architecture [Link][r1]
 Bild 2: Microservices Architektur mit Spring Cloud [Link][r1]  
 Bild 3: Eureka Service Dashboard (Screenshot aus Übung für Projektarbeit)
 
+
 [p1]: documentation/images/microservices_arch_1.png?raw=true "Picture 1: Microservices Architecture"
 [p2]: documentation/images/microservices_arch_2.png?raw=true "Picture 2: Microservices Architecture with Spring Cloud"
 [p3]: documentation/images/registry_dashboard.png?raw=true "Picture 3: Eureka Service Dashboard"
@@ -138,3 +142,4 @@ Bild 3: Eureka Service Dashboard (Screenshot aus Übung für Projektarbeit)
 [r3]: https://github.com/Netflix/Hystrix/wiki
 [r4]: https://github.com/Netflix/eureka/wiki
 [r5]: https://github.com/Netflix/Turbine/wiki
+[r6]: https://www.innoq.com/de/articles/2014/08/hystrix-artikel/
