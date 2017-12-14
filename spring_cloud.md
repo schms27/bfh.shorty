@@ -20,6 +20,8 @@ Durch die Unabhängigkeit der einzelnen Services voneinander, ist es möglich, d
 
 Dazu bietet es sich an, ab einer gewissen Grösse für jeden Service ein eigenes Entwickler- und Operationsteam zu haben. Dadurch kann das benötigte Know-How konzentriert werden und die Weiterentwicklung, Wartung und Betrieb des Services liegt immer in Händen von Spezialisten. Die Einzelnen Teams können theoretisch alle mit den Technologien arbeiten, mit denen sie am besten vertraut sind. Die Kompatibilität zu den anderen Services und ihren Technologien ist durch den Austausch über REST APIs gewährleistet.
 
+So kann auch für jeden Teil der Applikation der geeignetste Datenbank-Typ verwendet werden, also je nach dem eine relationale Datenbank für einen Teil und eine NoSQL-Datenbank für einen anderen Teil des Systems.
+
 Ein einzelner Dienst ist im gesamten Applikationskontext immer relativ klein und kann so bestmöglich auf die zu erfüllende Aufgabe zugeschnitten werden.
 
 #### Neue Herausforderungen
