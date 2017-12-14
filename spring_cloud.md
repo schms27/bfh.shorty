@@ -129,15 +129,15 @@ Ausser den erwähnten Services von Spring Cloud gibt es noch wesentlich mehr Too
 ---
 #### Referenzen
 ##### Literatur & Web
-[Spring Cloud Projektwebsite][r7]
-Webartikel zu Spring Cloud [DZone Artikel][r1]  
-Webartikel zu Hystrix [innoQ Artikel][r9]
-[Eureka Wiki][r4]  
-[Zuul Wiki][r2]  
-[Hystrix Wiki][r3]  
-[Turbine Wiki][r5]  
-[Spring Cloud Config][r6]  
-[Spring Cloud Security][r8]
+* [Spring Cloud Projektwebsite][r7]
+* Webartikel zu Spring Cloud [DZone Artikel][r1]  
+* Webartikel zu Hystrix [innoQ Artikel][r9]
+* [Eureka Wiki][r4]  
+* [Zuul Wiki][r2]  
+* [Hystrix Wiki][r3]  
+* [Turbine Wiki][r5]  
+* [Spring Cloud Config][r6]  
+* [Spring Cloud Security][r8]
 
 ##### Bilder
 Bild 1: Microservices Architecture [Link][r1]  
