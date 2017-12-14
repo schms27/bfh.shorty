@@ -40,34 +40,65 @@ Um die vorher erwähnten Herausforderungen besser meistern zu können, wurde Spr
 
 Wir wollen kurz auf die wichtigsten Bestandteile von Spring Cloud eingehen:
  
-#### Eureka
+#### [Eureka][r4]
 Da die IP Adressen der einzelnen Dienste nicht als fix angenommen werden können, muss ein Hilfsdienst bestehen, bei dem sich die Services registrieren können und der die Requests an den richtigen Empfänger weiterleitet. Dies funktioniert auch, wenn die einzelnen Dienste unter dynamisch ändernden IP-Adressen erreichbar sind.
+
 Eureka wird selber ebenfalls als Service konfiguriert und gestartet und stellt ein Web-Userinterface zur Verfügung, wo die registrierten Dienste angezeigt und verwaltet werden können. Dies ist zwar nur in vereinfachter Art und Weise möglich, bietet aber trotzdem schon einiges an Information:
 ![img registry_service_dashboard][p3]
 
 ##### Beispiel
-Eureka Server:
+Eureka Server (Registry Service):
 ```java
-  @SpringBootApplication
-  @EnableEurekaServer
-  public class ServiceDiscovery {
-      public static  void main(String[] args){
-          SpringApplication.run(ServiceDiscovery.class);
-      }
+   @SpringBootApplication
+   @EnableEurekaServer
+   public class RegistryServiceApplication {
+	     public static void main(String[] args) {
+		      SpringApplication.run(RegistryServiceApplication.class, args);
+	     }
   }
 ```
-Eureka Client:
+Eureka Client (registrierter Service):
 ```java
   @SpringBootApplication
   @EnableDiscoveryClient
-  public class DomainService {
-      public static  void main(String[] args){
-          SpringApplication.run(DomainService.class, args);
-      }
+  public class TargetserviceApplication {
+	    public static void main(String[] args) {
+		      SpringApplication.run(TargetserviceApplication.class, args);
+	    }
   }
 ```
+#### [Zuul][r2]
+Zuul kann als zentrale Anlaufstelle einer Microservice Architektur angeschaut werden. Zuul nimmt die Requests entgegen und leitet sie an den jeweiligen Service weiter. Die API einer Microservice-Application wird im Zuul-Service definiert. Zuul ist wie die Domain-Services ebenfalls ein Service, der von Eureka verwaltet wird. 
 
-#### Hystrix
+##### Beispiel
+Frontend-Service:
+```java
+    @SpringBootApplication
+    @EnableDiscoveryClient
+    @EnableZuulProxy
+    public class FrontendServiceApplication {
+	      public static void main(String[] args) {
+		      SpringApplication.run(FrontendServiceApplication.class, args);
+	      }
+    }
+```
+API-Config:
+```yml
+# API Proxy configuration
+zuul:
+  routes:
+    target-service:
+      path: /targets/**
+      serviceId: target-service
+      stripPrefix: false
+    user-service:
+      path: /users/**
+      serviceId: user-service
+      stripPrefix: false
+
+```
+
+#### [Hystrix][r3]
 
 Hystrix ist eine von Netflix (ursprünglich für den Eigenbedarf) entwickelte Bibliothek, die die Fehlertoleranz von Microservic-Architekturen erhöhen soll.
 Dazu werden beispielsweise Abhängigkeiten vorübergehend getrennt, wenn ein Service nicht verfügbar ist (Circuit-Breaker, "Sicherung"), Anfragen zurückgewiesen, wenn der zuständige Service überlastet ist.
@@ -81,11 +112,22 @@ Zudem kann das System in "Bulkheads" unterteilt werden. Dies sind Gruppen von Re
 
 
 #### Referenzen
+##### Literatur & Web
+Webartikel zu Spring Cloud [DZone Artikel][r1]  
+[Eureka Wiki][r4]  
+[Zuul Wiki][r2]  
+[Hystrix Wiki][r3]  
 
-Webartikel zu Spring Cloud [DZone Artikel][r1]
+##### Bilder
+Picture 1: Microservices Architecture [Link][r1]  
+Picture 2: Microservices Architecture with Spring Cloud [Link][r1]  
+Picture 3: Eureka Service Dashboard (Screenshot aus Übung für Projektarbeit)
 
 [p1]: documentation/images/microservices_arch_1.png?raw=true "Picture 1: Microservices Architecture"
 [p2]: documentation/images/microservices_arch_2.png?raw=true "Picture 2: Microservices Architecture with Spring Cloud"
 [p3]: documentation/images/registry_dashboard.png?raw=true "Picture 3: Eureka Service Dashboard"
 
 [r1]: https://dzone.com/articles/microservice-architecture-with-spring-cloud-and-do
+[r2]: https://github.com/Netflix/zuul/wiki
+[r3]: https://github.com/Netflix/Hystrix/wiki
+[r4]:https://github.com/Netflix/eureka/wiki
