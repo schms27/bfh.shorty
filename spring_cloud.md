@@ -112,6 +112,7 @@ Zudem kann das System in "Bulkheads" unterteilt werden. Dies sind Gruppen von Re
 #### [Turbine][r5]
 
 Turbine ist eine ursprünglich ebenfalls von Netflix entwickelte Bibliothek um die Metriken aller laufenden Dienste (im JSON Format) zusammenzutragen und auszuwerten. Der Dschungel von Services in einer grossen Microservice App ist unüberschaubar und Turbine setzt genau da an, um aus dem riesigen Strom von Daten die relevanten Informationen herauszuholen und anzuzeigen, so dass der DevOp stets Herr der Lage bleibt.
+Die von Turbine aggregierten Metriken können z.B. in einem Hystrix-Dashboard dargestellt werden.
 
 #### [Config Service][r6]
 
