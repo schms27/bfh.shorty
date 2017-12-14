@@ -42,6 +42,8 @@ Wir wollen kurz auf die wichtigsten Bestandteile von Spring Cloud eingehen:
  
 #### Eureka
 Da die IP Adressen der einzelnen Dienste nicht als fix angenommen werden können, muss ein Hilfsdienst bestehen, bei dem sich die Services registrieren können und der die Requests an den richtigen Empfänger weiterleitet. Dies funktioniert auch, wenn die einzelnen Dienste unter dynamisch ändernden IP-Adressen erreichbar sind.
+Eureka wird selber ebenfalls als Service konfiguriert und gestartet und stellt ein Web-Userinterface zur Verfügung, wo die registrierten Dienste angezeigt und verwaltet werden können. Dies ist zwar nur in vereinfachter Art und Weise möglich, bietet aber trotzdem schon einiges an Information:
+![img registry_service_dashboard][p3]
 
 ##### Beispiel
 Eureka Server:
@@ -84,5 +86,6 @@ Webartikel zu Spring Cloud [DZone Artikel][r1]
 
 [p1]: documentation/images/microservices_arch_1.png?raw=true "Picture 1: Microservices Architecture"
 [p2]: documentation/images/microservices_arch_2.png?raw=true "Picture 2: Microservices Architecture with Spring Cloud"
+[p3]: documentation/images/registry_dashboard.png?raw=true "Picture 3: Eureka Service Dashboard"
 
 [r1]: https://dzone.com/articles/microservice-architecture-with-spring-cloud-and-do

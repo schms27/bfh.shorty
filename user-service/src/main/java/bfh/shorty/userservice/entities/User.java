@@ -1,4 +1,4 @@
-package bfh.shorty.entities;
+package bfh.shorty.userservice.entities;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -18,6 +18,13 @@ public class User {
     private String email;
     private int paswordHash;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
