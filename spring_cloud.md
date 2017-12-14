@@ -109,9 +109,12 @@ Zudem kann das System in "Bulkheads" unterteilt werden. Dies sind Gruppen von Re
 
 #### [Turbine][r5]
 
-Turbine ist eine ursprünglich ebenfalls von Netflix entwickelte Bibliothek um die Metriken aller laufenden Dienste zusammenzutragen und auszuwerten. Der Dschungel von Services in einer grossen Microservice App ist unüberschaubar und Turbine setzt genau da an, um aus dem riesigen Strom von Daten die relevanten herauszuholen und anzuziegen, so dass der DevOps stets Herr der Lage bleibt.
+Turbine ist eine ursprünglich ebenfalls von Netflix entwickelte Bibliothek um die Metriken aller laufenden Dienste (im JSON Format) zusammenzutragen und auszuwerten. Der Dschungel von Services in einer grossen Microservice App ist unüberschaubar und Turbine setzt genau da an, um aus dem riesigen Strom von Daten die relevanten Informationen herauszuholen und anzuzeigen, so dass der DevOp stets Herr der Lage bleibt.
 
-#### Config Service
+#### [Config Service][r6]
+
+Der Config-Service von Spring Cloud bietet sowohl server- als auch clientseitig eine REST-API, wo sich die Services die benötigten Einstellungen zentralisiert abholen können. Dies erleichtert die Konfiguration besonders bei grossen Systemen extrem, da Anpassungen in der Config an einer zentralisierten Stelle vorgenommen werden können.
+
 
 #### Auth Service
 
@@ -123,6 +126,7 @@ Webartikel zu Spring Cloud [DZone Artikel][r1]
 [Zuul Wiki][r2]  
 [Hystrix Wiki][r3]  
 [Turbine Wiki][r5]  
+[Spring Cloud Config][r6]  
 
 ##### Bilder
 Bild 1: Microservices Architecture [Link][r1]  
@@ -138,3 +142,4 @@ Bild 3: Eureka Service Dashboard (Screenshot aus Übung für Projektarbeit)
 [r3]: https://github.com/Netflix/Hystrix/wiki
 [r4]: https://github.com/Netflix/eureka/wiki
 [r5]: https://github.com/Netflix/Turbine/wiki
+[r6]: https://cloud.spring.io/spring-cloud-config/
