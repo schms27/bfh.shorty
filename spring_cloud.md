@@ -116,17 +116,21 @@ Turbine ist eine ursprünglich ebenfalls von Netflix entwickelte Bibliothek um d
 Der Config-Service von Spring Cloud bietet sowohl server- als auch clientseitig eine REST-API, wo sich die Services die benötigten Einstellungen zentralisiert abholen können. Dies erleichtert die Konfiguration besonders bei grossen Systemen extrem, da Anpassungen in der Config an einer zentralisierten Stelle vorgenommen werden können.
 
 
-#### Auth Service
+#### [Security and Auth Service][r8]
+
+Spring Cloud bietet eigene Security und (O)Authentication Services an, um die Benutzerverwaltung und Sicherheit von Microservice-Applikationen zu erleichtern und zu verbessern.
 
 
 #### Referenzen
 ##### Literatur & Web
+[Spring Cloud Projektwebsite][r7]
 Webartikel zu Spring Cloud [DZone Artikel][r1]  
 [Eureka Wiki][r4]  
 [Zuul Wiki][r2]  
 [Hystrix Wiki][r3]  
 [Turbine Wiki][r5]  
 [Spring Cloud Config][r6]  
+[Spring Cloud Security][r8]
 
 ##### Bilder
 Bild 1: Microservices Architecture [Link][r1]  
@@ -143,3 +147,5 @@ Bild 3: Eureka Service Dashboard (Screenshot aus Übung für Projektarbeit)
 [r4]: https://github.com/Netflix/eureka/wiki
 [r5]: https://github.com/Netflix/Turbine/wiki
 [r6]: https://cloud.spring.io/spring-cloud-config/
+[r7]: http://projects.spring.io/spring-cloud/
+[r8]: https://cloud.spring.io/spring-cloud-security/
