@@ -31,6 +31,8 @@ Entwickler werden zu devops, müssen sich also entsprechend in neue Arbeitsfelde
 
 Die Fehlertoleranz und ‘Selbstheilung’ muss ebenfalls durch Hilfsdienste verbessert werden, damit bei Versagen eines einzelnen Dienstes nicht das ganze System versagt bzw. sich möglichste schnell wieder regeneriert.
 
+So soll im Beispiel in obiger Grafik der Statistics Service eine Anfrage Anfrage auch beantworten können, wenn der Account Service nicht erreichbar ist, auch wenn dann Teile der Antwort fehlen. Ansonsten würde eine Störung bei einem einzelnen Service das ganze System lahmlegen.
+
 ### Spring Cloud
 Um die vorher erwähnten Herausforderungen besser meistern zu können, wurde Spring Cloud entwickelt. Spring Cloud ist ein Teil von Spring IO und beherbergt unter sich eine grössere Anzahl von weiteren Tools, um eine komplette Microservice-Applikation erstellen und betreiben zu können. Die zuvor gezeigte Microservices Architektur könnte mit den Erweiterungen von Spring Cloud in etwa so aussehen:
 
@@ -63,7 +65,11 @@ Eureka Client:
   }
 ```
 
-#### Hysterix
+#### Hystrix
+
+Hystrix ist eine von Netflix (ursprünglich für den Eigenbedarf) entwickelte Bibliothek, die die Fehlertoleranz von Microservic-Architekturen erhöhen soll.
+Dazu werden beispielsweise Abhängigkeiten vorübergehend getrennt, wenn ein Service nicht verfügbar ist (Circuit-Breaker, "Sicherung"), Anfragen zurückgewiesen, wenn der zuständige Service überlastet ist.
+Zudem kann das System in "Bulkheads" unterteilt werden. Dies sind Gruppen von Ressourcen, die von einander unabhängig und isoliert sind, so dass sich Fehler nicht von einem Bulkhead zum anderen ausbreiten können.
 
 #### Turbine
 
