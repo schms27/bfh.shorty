@@ -120,7 +120,11 @@ Der Config-Service von Spring Cloud bietet sowohl server- als auch clientseitig 
 
 Spring Cloud bietet eigene Security und (O)Authentication Services an, um die Benutzerverwaltung und Sicherheit von Microservice-Applikationen zu erleichtern und zu verbessern.
 
+#### Ausblick
 
+Ausser den erwähnten Services von Spring Cloud gibt es noch wesentlich mehr Tools, die beispielsweise das clientseitige Loadbalancing (Ribbon, Feign), oder zusätzliche Auswertungsmöglichkeiten (z.b. Elk Stack) bieten. Wir gehen an dieser Stelle jedoch nicht weiter darauf ein, da diese Teile in der Vorlesung später erst abgedeckt werden.
+
+---
 #### Referenzen
 ##### Literatur & Web
 [Spring Cloud Projektwebsite][r7]
