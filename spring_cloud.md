@@ -13,6 +13,7 @@ Unter Microservice-Architektur versteht man generell eine komplexe Applikation, 
 6.	Die Entwickler der jeweiligen Services sind im Normalfall auch für deren Betrieb und Wartung zuständig (devops)
 
 ![img architecture][p1]
+*Bild 1: Microservices Architektur*
 
 #### Vorteile gegenüber «monolithisch» gebauten Applikationen
 Durch die Unabhängigkeit der einzelnen Services voneinander, ist es möglich, diese je nach Anforderung an die jeweilige Aufgabe des Services technisch komplett verschieden aufzubauen und unabhängig voneinander weiterzuentwickeln.
@@ -37,6 +38,7 @@ So soll im Beispiel in obiger Grafik der Statistics Service eine Anfrage Anfrage
 Um die vorher erwähnten Herausforderungen besser meistern zu können, wurde Spring Cloud entwickelt. Spring Cloud ist ein Teil von Spring IO und beherbergt unter sich eine grössere Anzahl von weiteren Tools, um eine komplette Microservice-Applikation erstellen und betreiben zu können. Die zuvor gezeigte Microservices Architektur könnte mit den Erweiterungen von Spring Cloud in etwa so aussehen:
 
 ![img architecture spring cloud][p2]
+*Bild 2: Microservices Architektur mit Spring Cloud*
 
 Wir wollen kurz auf die wichtigsten Bestandteile von Spring Cloud eingehen:
  
@@ -45,6 +47,7 @@ Da die IP Adressen der einzelnen Dienste nicht als fix angenommen werden können
 
 Eureka wird selber ebenfalls als Service konfiguriert und gestartet und stellt ein Web-Userinterface zur Verfügung, wo die registrierten Dienste angezeigt und verwaltet werden können. Dies ist zwar nur in vereinfachter Art und Weise möglich, bietet aber trotzdem schon einiges an Information:
 ![img registry_service_dashboard][p3]
+*Bild 3: Eureka Service Dashboard*
 
 ##### Beispiel
 Eureka Server (Registry Service):
@@ -104,7 +107,9 @@ Hystrix ist eine von Netflix (ursprünglich für den Eigenbedarf) entwickelte Bi
 Dazu werden beispielsweise Abhängigkeiten vorübergehend getrennt, wenn ein Service nicht verfügbar ist (Circuit-Breaker, "Sicherung"), Anfragen zurückgewiesen, wenn der zuständige Service überlastet ist.
 Zudem kann das System in "Bulkheads" unterteilt werden. Dies sind Gruppen von Ressourcen, die von einander unabhängig und isoliert sind, so dass sich Fehler nicht von einem Bulkhead zum anderen ausbreiten können.
 
-#### Turbine
+#### [Turbine][r5]
+
+Turbine ist eine ursprünglich ebenfalls von Netflix entwickelte Bibliothek um die Metriken aller laufenden Dienste zusammenzutragen und auszuwerten. Der Dschungel von Services in einer grossen Microservice App ist unüberschaubar und Turbine setzt genau da an, um aus dem riesigen Strom von Daten die relevanten herauszuholen und anzuziegen, so dass der DevOps stets Herr der Lage bleibt.
 
 #### Config Service
 
@@ -117,11 +122,12 @@ Webartikel zu Spring Cloud [DZone Artikel][r1]
 [Eureka Wiki][r4]  
 [Zuul Wiki][r2]  
 [Hystrix Wiki][r3]  
+[Turbine Wiki][r5]  
 
 ##### Bilder
-Picture 1: Microservices Architecture [Link][r1]  
-Picture 2: Microservices Architecture with Spring Cloud [Link][r1]  
-Picture 3: Eureka Service Dashboard (Screenshot aus Übung für Projektarbeit)
+Bild 1: Microservices Architecture [Link][r1]  
+Bild 2: Microservices Architektur mit Spring Cloud [Link][r1]  
+Bild 3: Eureka Service Dashboard (Screenshot aus Übung für Projektarbeit)
 
 [p1]: documentation/images/microservices_arch_1.png?raw=true "Picture 1: Microservices Architecture"
 [p2]: documentation/images/microservices_arch_2.png?raw=true "Picture 2: Microservices Architecture with Spring Cloud"
@@ -130,4 +136,5 @@ Picture 3: Eureka Service Dashboard (Screenshot aus Übung für Projektarbeit)
 [r1]: https://dzone.com/articles/microservice-architecture-with-spring-cloud-and-do
 [r2]: https://github.com/Netflix/zuul/wiki
 [r3]: https://github.com/Netflix/Hystrix/wiki
-[r4]:https://github.com/Netflix/eureka/wiki
+[r4]: https://github.com/Netflix/eureka/wiki
+[r5]: https://github.com/Netflix/Turbine/wiki
