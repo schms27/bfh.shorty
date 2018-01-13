@@ -111,10 +111,48 @@ Hystrix ist eine von Netflix (ursprünglich für den Eigenbedarf) entwickelte Bi
 Dazu werden beispielsweise Abhängigkeiten vorübergehend getrennt, wenn ein Service nicht verfügbar ist (Circuit-Breaker, "Sicherung"), Anfragen zurückgewiesen, wenn der zuständige Service überlastet ist.
 Zudem kann das System in "Bulkheads" unterteilt werden. Dies sind Gruppen von Ressourcen, die von einander unabhängig und isoliert sind, so dass sich Fehler nicht von einem Bulkhead zum anderen ausbreiten können.
 
+Hystrix kann über die Annotation ```@EnableCircuitBreaker``` bei der jeweiligen Klasse hinzugefügt werden. Wenn der Service nicht verfügbar ist, wird nun der Circuit Breaker Dummy-Daten zurückschicken anstatt auf eine Antwort des Services zu warten.
+Damit er mit Dummydaten antworten kann, muss bei den jeweiligen Methoden (Getter) eine Fallback-Methode angegeben sein, die Dummy-Daten zurückgibt. Im untenstehenden Beispiel geschieht dies über die Annotation ```@HystrixCommand(fallbackMethod = "getFallbackUrl")```
+ 
+Beispiel:
+```java
+@Configuration
+@EnableHystrixDashboard
+@EnableTurbine
+@EnableCircuitBreaker
+public class UrlClient {
+    @Bean
+    RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+    
+    @Autowired
+    RestTemplate restTemplate;
+    
+    @HystrixCommand(fallbackMethod = "getFallbackUrl")
+    public Resource<Url> getUrl(String id) {
+        Url url = this.restTemplate.getForObject("http://localhost:8080/urls"+id, Person.class);
+        return new Resource<>(url);
+    }
+    
+    public Resource<Url> getFallbackUrl(String id) {
+        Url url = createDummyUrl();
+        return new Resource<>(url);
+    }
+}
+```
+
+Wenn der Service nicht verfügbar war, wird Hystrix bei weiteren Requests direkt auf die Fallback-Methode ausweichen anstatt bei jedem Request zuerst erfolglos versuchen den Service zu erreichen.
+Es wird dann nur periodisch für einzelne Requests versucht, ob der Service mittlerweile wieder verfügbar ist und alle Requests wieder an den Service geschickt werden können.
+
+Der Status (closed, open, half-open) kann dann im Hystrix-Dashboard, welches mit ```@EnableHystrixDashboard``` eingeschaltet wird, angezeigt werden. 
+
 #### [Turbine][r5]
 
 Turbine ist eine ursprünglich ebenfalls von Netflix entwickelte Bibliothek um die Metriken aller laufenden Dienste (im JSON Format) zusammenzutragen und auszuwerten. Der Dschungel von Services in einer grossen Microservice App ist unüberschaubar und Turbine setzt genau da an, um aus dem riesigen Strom von Daten die relevanten Informationen herauszuholen und anzuzeigen, so dass der DevOp stets Herr der Lage bleibt.
-Die von Turbine aggregierten Metriken können z.B. in einem Hystrix-Dashboard dargestellt werden.
+
+Auch Turbine kann via Annotation (```@EnableTurbine```) aktiviert werden. Hystrix stellt dann automatisch ein Dashboard mit den Stati und den Metriken aller Services bei denen Turbine aktiv ist bereit.
+
 
 #### [Config Service][r6]
 
