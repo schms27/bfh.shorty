@@ -14,7 +14,7 @@ zuul:
   routes:
     target-service:
       path: /targets/**
-      serviceId: target-service
+      serviceId: short-link-service
       stripPrefix: false
     user-service:
       path: /users/**
