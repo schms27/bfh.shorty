@@ -1,4 +1,4 @@
-package bfh.shorty.targetservice;
+package bfh.shorty.shortlinkservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,7 +1,6 @@
-package bfh.shorty.targetservice.repositories;
+package bfh.shorty.shortlinkservice.repositories;
 
-import bfh.shorty.targetservice.entities.ShortLink;
-import bfh.shorty.targetservice.entities.Target;
+import bfh.shorty.shortlinkservice.entities.ShortLink;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

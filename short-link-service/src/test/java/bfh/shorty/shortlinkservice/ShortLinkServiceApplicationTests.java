@@ -1,4 +1,4 @@
-package bfh.shorty.targetservice;
+package bfh.shorty.shortlinkservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package bfh.shorty.targetservice.entities;
+package bfh.shorty.shortlinkservice.entities;
 
 import org.hibernate.annotations.GenericGenerator;
 

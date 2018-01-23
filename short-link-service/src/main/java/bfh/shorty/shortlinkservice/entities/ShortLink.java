@@ -1,11 +1,8 @@
-package bfh.shorty.targetservice.entities;
+package bfh.shorty.shortlinkservice.entities;
 
-import org.apache.catalina.User;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -15,10 +12,10 @@ public class ShortLink {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
 
+    @Embedded
     Domain domain;
 
-    User owner;
-
+    @OneToMany
     List<Target> targets;
 
 }
