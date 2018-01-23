@@ -13,7 +13,7 @@ eureka:
 zuul:
   routes:
     target-service:
-      path: /targets/**
+      path: /shortlinks/**
       serviceId: short-link-service
       stripPrefix: false
     user-service:
