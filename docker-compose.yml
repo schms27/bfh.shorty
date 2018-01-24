@@ -1,0 +1,30 @@
+version: "2"
+services:
+  registry:
+    build: ./registry-service
+    networks:
+      - shorty
+    ports:
+      - "1111:1111"
+  person:
+    build: ./user-service
+    networks:
+      - shorty
+  address:
+    build: ./short-link-service
+    networks:
+      - shorty
+  frontend:
+    build: ./frontend-service
+    networks:
+      - shorty
+    ports:
+      - "8080:8080"
+  monitor:
+    build: ./monitor-service
+    networks:
+      - shorty
+    ports:
+      - "9999:9999"
+networks:
+  shorty:
