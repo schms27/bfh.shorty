@@ -1,12 +1,12 @@
 package bfh.shorty.userservice.client;
-
+/*
 @Configuration
 @EnableHystrixDashboard
 @EnableTurbine
-@EnableCircuitBreaker
+@EnableCircuitBreaker*/
 public class ShortLinkClient {
 
-    @Bean
+    /*@Bean
     RestTemplate restTemplate() {
         return new RestTemplate();
     }
@@ -21,6 +21,6 @@ public class ShortLinkClient {
     public Resource<ShortLink> getFallbackShortlink(String id) {
         ShortLink shortLink = new ShortLink();
         return new Resource(shortLink);
-    }
+    }*/
 
 }

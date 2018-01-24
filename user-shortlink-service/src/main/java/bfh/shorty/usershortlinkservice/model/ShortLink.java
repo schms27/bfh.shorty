@@ -1,24 +1,22 @@
-package bfh.shorty.shortlinkservice.entities;
+package bfh.shorty.usershortlinkservice.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
 import java.util.List;
 
-@Entity
 public class ShortLink {
-    @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+
     private String id;
 
-    @Embedded
-    private Domain domain;
+    Domain domain;
 
-    @OneToMany
-    private List<Target> targets;
+    List<Target> targets;
 
-    private String ownerId;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Domain getDomain() {
         return domain;

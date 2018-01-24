@@ -16,7 +16,7 @@ public class User {
 
     private String username;
     private String email;
-    private int paswordHash;
+    private String passwordHash;
 
     public String getId() {
         return id;
@@ -42,11 +42,11 @@ public class User {
         this.email = email;
     }
 
-    public int getPaswordHash() {
-        return paswordHash;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPaswordHash(int paswordHash) {
-        this.paswordHash = paswordHash;
+    public void setPasswordHash( String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 }

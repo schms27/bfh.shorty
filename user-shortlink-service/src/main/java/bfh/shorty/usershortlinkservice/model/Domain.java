@@ -1,8 +1,5 @@
-package bfh.shorty.shortlinkservice.entities;
+package bfh.shorty.usershortlinkservice.model;
 
-import javax.persistence.Embeddable;
-
-@Embeddable
 public class Domain {
     String url;
 

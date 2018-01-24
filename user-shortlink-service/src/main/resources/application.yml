@@ -1,0 +1,33 @@
+# Spring properties
+spring:
+  application:
+    name: user-shortlink-service
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 10
+
+# Enable hystrix for feign
+feign:
+    hystrix:
+        enabled: true
+
+# HTTP Server
+server:
+  port: 4444   # HTTP (Tomcat) port
+
+#resolve the service time-out exception
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+ribbon:
+  ReadTimeout: 100000
+  ConnectTimeout: 100000

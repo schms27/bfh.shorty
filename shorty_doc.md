@@ -9,6 +9,18 @@
 
 ### Probleme und Herausforderungen
 
+- ID's von Usern wurden nicht gemappt, wenn der Userservice vom User-Shortlinkservice aufgerufen wurde.  
+
+Lösung: 
+UserServiceApplication von RepositoryRestConfigurerAdapter erben lassen, um folgende Methode überschreiben zu können:
+
+```java
+@Override
+public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+	config.exposeIdsFor(User.class);
+}
+```
+
 ### Installationsanleitung
 
 ### Debug Notes
