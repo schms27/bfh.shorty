@@ -12,11 +12,7 @@ eureka:
 # API Proxy configuration
 zuul:
   routes:
-    target-service:
+    short-link-service:
       path: /shortlinks/**
       serviceId: short-link-service
-      stripPrefix: false
-    user-service:
-      path: /users/**
-      serviceId: user-service
       stripPrefix: false
