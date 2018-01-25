@@ -23,6 +23,22 @@ public void configureRepositoryRestConfiguration(RepositoryRestConfiguration con
 
 ### Installationsanleitung
 
+Projekt builden, Console:
+```bash
+mvn clean
+mvn install
+```
+
+Docker Container starten, Console bzw. Powershell da es mit IntelliJ-Console auf Windows offenbar nicht funktioniert:
+```bash
+docker-compose up
+```
+
+Alle Docker Container stoppen (können mit docker-compose start wieder gestartet werden)
+```bash
+docker-compose stop
+```
+
 ### Debug Notes
 
 #### Hystrix Dashboard

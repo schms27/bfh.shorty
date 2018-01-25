@@ -6,12 +6,16 @@ services:
       - shorty
     ports:
       - "1111:1111"
-  person:
+  user:
     build: ./user-service
     networks:
       - shorty
-  address:
+  short-link:
     build: ./short-link-service
+    networks:
+      - shorty
+  user-shortlink:
+    build: ./user-shortlink-service
     networks:
       - shorty
   frontend:
@@ -20,7 +24,7 @@ services:
       - shorty
     ports:
       - "8080:8080"
-  monitor:
+  monitoring:
     build: ./monitoring-service
     networks:
       - shorty
