@@ -20,6 +20,14 @@ public class ShortLink {
 
     private String ownerId;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public Domain getDomain() {
         return domain;
     }
@@ -35,4 +43,5 @@ public class ShortLink {
     public void setTargets(List<Target> targets) {
         this.targets = targets;
     }
+
 }

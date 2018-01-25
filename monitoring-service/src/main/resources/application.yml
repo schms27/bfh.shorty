@@ -1,0 +1,20 @@
+# Spring properties
+spring:
+  application:
+    name: monitoring-service
+
+# Discovery Server Access
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+
+# HTTP Server
+server:
+  port: 9999   # HTTP (Tomcat) port
+
+# Service Monitoring
+turbine:
+  clusterNameExpression: new String("default")
+  appConfig: user-shortlink-service

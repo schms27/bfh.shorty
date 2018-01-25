@@ -25,6 +25,15 @@ public void configureRepositoryRestConfiguration(RepositoryRestConfiguration con
 
 ### Debug Notes
 
+#### Hystrix Dashboard
+http://localhost:9999/hystrix
+
+Stream auf:  
+http://localhost:9999/turbine.stream  
+einstellen.  
+
+Momentan wird nur user-shortlink-service (http://localhost:8080/userShortLink) auf dem Monitor überwacht.
+
 #### H2 Zugriff
 Die verwendete In-Memory Datenbank H2 kann für die jeweiligen Services wie folgt erreicht werden:
 
