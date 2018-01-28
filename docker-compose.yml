@@ -10,25 +10,35 @@ services:
     build: ./user-service
     networks:
       - shorty
+    logging:
+      driver: "none"
   short-link:
     build: ./short-link-service
     networks:
       - shorty
+    logging:
+      driver: "none"
   user-shortlink:
     build: ./user-shortlink-service
     networks:
       - shorty
+    logging:
+      driver: "none"
   frontend:
     build: ./frontend-service
     networks:
       - shorty
     ports:
       - "8080:8080"
+    #logging:
+    #  driver: "none"
   monitoring:
     build: ./monitoring-service
     networks:
       - shorty
     ports:
       - "9999:9999"
+    logging:
+      driver: "none"
 networks:
   shorty:

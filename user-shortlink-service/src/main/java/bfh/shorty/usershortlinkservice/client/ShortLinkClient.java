@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value = "short-link-service"/*, fallback = ShortLinkClientFallback.class*/)
+@FeignClient(value = "short-link-service", fallback = ShortLinkClientFallback.class)
 public interface ShortLinkClient {
     @RequestMapping(method = RequestMethod.GET, value = "/shortLinks")
     Resources<ShortLink> getShortLinks();
