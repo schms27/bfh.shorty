@@ -87,17 +87,24 @@ Die folgenden Methoden/API-Calls werden im Hystix Dashboard angezeigt:
 
 ### Probleme und Herausforderungen
 
-- ID's von Usern wurden nicht gemappt, wenn der Userservice vom User-Shortlinkservice aufgerufen wurde.  
-
-Lösung: 
+1. Problem: ID's von Usern wurden nicht gemappt, wenn der Userservice vom User-Shortlinkservice aufgerufen wurde.  
+Lösung:  
 UserServiceApplication von RepositoryRestConfigurerAdapter erben lassen, um folgende Methode überschreiben zu können:
-
-```java
-@Override
-public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+    ```java
+    @Override
+    public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
 	config.exposeIdsFor(User.class);
-}
-```
+    }
+    ```
+2. Problem: Circuit Breaker/Fallback in user-shortlink-service ShortLinkClient.java funktioniert nur, wenn der Dienst aus der
+IDE heraus gestartet wird. Beim Einsatz von Docker wird der Circuit nicht geöffnet und das Fallback nicht ausgelöst, wenn der
+short-link-service nicht antwortet.  
+Vermutung:  
+In UserShortlinkController.java wird das Interface ShortLinkClient.java per @Autowired injected, allerdings ist das Bean dazu mit
+der Fallbackklasse nicht mehr eindeutig definiert ud kann wahrscheinlich zur Laufzeit nicht korrekt instanziert werden.  
+Lösung:  
+nach mehreren Stunden Suche aufgegeben, wahrscheinlich müsste dafür eine Feign Configuration erstellt werden:
+https://github.com/spring-cloud/spring-cloud-netflix/issues/899
 
 ### Installationsanleitung
 Projekt von GitHub holen:
