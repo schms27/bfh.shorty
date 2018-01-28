@@ -7,7 +7,7 @@
 
 ### Domain Model
 
-![img domain model][p1]
+![img domain model][p1]  
 *Bild 1: Domain Model Url-Shortener*
 
 ### Umgesetzte Services
@@ -17,36 +17,39 @@ Die Entität 'User' wird über einen eigenen Dienst verwaltet, da der User vom M
 Das heisst, der User existiert auch, wenn er keine zugehörigen Shortlinks hat.
 
 REST API:  
+
 | Aktion (CRUD)         | HTTP-Method   | URL           |
 | ----------------------|---------------|---------------|
 | Create                | POST          |/users/        |
 | Read All              | GET           |/users/        |
-| Read One              | GET           |/users/{id}    |
-| Update                | PUT           |/users/{id}    |
-| Delete                | DELETE        |/users/{id}    |
+| Read One              | GET           |/users/\{id\}  |
+| Update                | PUT           |/users/\{id\}  |
+| Delete                | DELETE        |/users/\{id\}  |
 
 #### Shortlink Service
 Mit dem Shortlink Service wird die Entität 'Shortlink' inklusive ihrer zugehörigen Entität 'Domain' sowie einer Liste von 'Targets' verwaltet.
 Dies aus dem Grund, weil diese beiden Entitäten eine Composite Aggregation zu Shortlink bilden, d.h die Existenz eines Targets macht nur zusammen 
-mit einem Shortlink Sinn, dasselbe bei der Domain-Entity.
+mit einem Shortlink Sinn, dasselbe bei der Domain-Entity.  
 
 REST API:  
-| Aktion (CRUD)         | HTTP-Method   | URL               |
-| ----------------------|---------------|-------------------|
-| Create                | POST          |/shortLinks/       |
-| Read All              | GET           |/shortLinks/       |
-| Read One              | GET           |/shortLinks/{id}   |
-| Update                | PUT           |/shortLinks/{id}   |
-| Delete                | DELETE        |/shortLinks/{id}   |
+
+| Aktion (CRUD)         | HTTP-Method   | URL                  |
+| ----------------------|---------------|----------------------|
+| Create                | POST          |/shortLinks/          |
+| Read All              | GET           |/shortLinks/          |
+| Read One              | GET           |/shortLinks/\{id\}    |
+| Update                | PUT           |/shortLinks/\{id\}    |
+| Delete                | DELETE        |/shortLinks/\{id\}    |
 
 #### User-Shortlink Service
 Die Aggreagation von Usern und zugehörigen Shortlinks wird über diesen Dienst gemacht.
 
-REST API:  
-| Aktion (CRUD)         | HTTP-Method   | URL                   |
-| ----------------------|---------------|-----------------------|
-| Read All              | GET           |/userShortLink/        |
-| Read One              | GET           |/userShortLink/{userid}|
+REST API: 
+
+| Aktion (CRUD)         | HTTP-Method   | URL                       |
+| ----------------------|---------------|---------------------------|
+| Read All              | GET           |/userShortLink/            |
+| Read One              | GET           |/userShortLink/\{userid\}  |
 
 #### Frontend Service
 Dieser Service dient als zentrale 'Anlaufstelle' um die Requests entgegenzunehmen und an den entsprechenden zuständigen Service weiterzuleiten.
