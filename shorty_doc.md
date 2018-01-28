@@ -5,14 +5,22 @@
 
 ### Zweck der Applikation
 
+Shorty ist ein URL-Shortener mit Microservice-Architektur, der es einem registrierten User ermöglichen soll, beliebige 
+URL's zu kürzen und zu speichern. Ausserdem sollen je nachdem, von welchem Gerät aus die gekürze URL aufgerufen wird, auf eine
+andere URL weitergeleitet werden können. Beispielsweise auf eine mobile Version der Website wenn vom Handy aus aufgerufen, auf Desktop Version
+wenn vom Laptop aufgerufen.  
+Wir setzten im Rahmen dieser Semesterarbeit nur das Backend mit Spring Cloud um, ein grosser Teil der Businesslogik müsste in einem nächsten Schritt
+frontendseitig implementiert werden (z.b. Angular 5 Webapp).
+
 ### Domain Model
 
 ![img domain model][p1]  
 *Bild 1: Domain Model Url-Shortener*
 
 ### Umgesetzte Services
+Da wir das Backend mit Spring Cloud als Microservice-Architektur umgesetzt haben, wurde die Applikation in die folgenden Services aufgeteilt:
 
-#### User Service
+##### User Service
 Die Entität 'User' wird über einen eigenen Dienst verwaltet, da der User vom Modell her unabhängig von den anderen Entitäten existiert.
 Das heisst, der User existiert auch, wenn er keine zugehörigen Shortlinks hat.
 
@@ -62,10 +70,10 @@ Dies bringt den Vorteil, dass die einzelnen Dienst nicht über ihre IP-Adressen 
 Der Registry Service selbst stellt unter Port 1111 ein Webinterface zur Verfügung, welches eine Übersicht über die registrierten Dienste bietet.
 
 #### Monitoring Service
-Der Monitoring Service dient der Überwachung der Services per Turbine/Hystrix. Das Hystrix Dashboard ist unter
+Der Monitoring Service dient der Überwachung der Services per Turbine/Hystrix. Das Hystrix Dashboard ist unter  
 [:9999/hystrix][r1]
-http://localhost:9999/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A9999%2Fturbine.stream&delay=1000&title=Shorty%20Application
 erreichbar.
+
 Die folgenden Methoden/API-Calls werden im Hystix Dashboard angezeigt:
 
 | API                   | Methode       |
@@ -92,14 +100,19 @@ public void configureRepositoryRestConfiguration(RepositoryRestConfiguration con
 ```
 
 ### Installationsanleitung
+Projekt von GitHub holen:
+```bash
+git clone https://github.com/schms27/bfh.shorty
+```
 
-Projekt builden, Console:
+Ins Projek wechseln, Projekt builden:
 ```bash
 mvn clean
 mvn install
 ```
 
-Docker Container starten, Console bzw. Powershell da es mit IntelliJ-Console auf Windows offenbar nicht funktioniert:
+Docker Container starten:  
+(mit Windows Powershell verwenden da es mit IntelliJ-Console offenbar nicht funktioniert...)
 ```bash
 docker-compose up
 ```
@@ -135,6 +148,8 @@ Password:
 
 #### Referenzen
 ##### Bilder
+
+
 
 [p1]: documentation/images/domain_model_urlShortener.jpg?raw=true "Bild 1: Domain Model Url-Shortener"
 
