@@ -94,7 +94,7 @@ Requests noch funktioniert und wie sich das Hystrix-Dashboard dabei verhält.
 |#1   | 2                     | 2500              |0.00 %       |
 |#2   | 500                   | 10                |34.89 %      |
 
-Auffallend îst hier natürlich die hohe Fehlerquote bei Test 2 mit vielen Threads mit jeweils weniger requests.
+Auffallend ist hier natürlich die hohe Fehlerquote bei Test 2 mit vielen Threads mit jeweils weniger requests.
 
 Folgende Screenshots zeigen grafisch das Hystrix Dashboard von den beiden Tests:
 
@@ -194,5 +194,5 @@ Password:
 [r1]: http://localhost:9999/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A9999%2Fturbine.stream&delay=1000&title=Shorty%20Application
 [r2]: https://github.com/spring-cloud/spring-cloud-netflix/issues/899
 [r3]: http://jmeter.apache.org/
-[r4]: https://github.com/schms27/bfh.shorty/blob/master/documentation/tests/JMeter_test_1/index.html
-[r5]: https://github.com/schms27/bfh.shorty/blob/master/documentation/tests/JMeter_test_2/index.html
+[r4]: http://htmlpreview.github.io/?https://github.com/schms27/bfh.shorty/blob/master/documentation/tests/JMeter_test_1/index.html
+[r5]: http://htmlpreview.github.io/?https://github.com/schms27/bfh.shorty/blob/master/documentation/tests/JMeter_test_2/index.html
