@@ -84,6 +84,30 @@ Die folgenden Methoden/API-Calls werden im Hystix Dashboard angezeigt:
 - TODO: ergänzen
 ```
 
+### Testing
+Zum Testen der Applikation haben wir einerseits Postman benutzt (API Calls), andererseits haben wir einen
+kurzen Belastungstest mit [JMeter][r3] durchgeführt. Dies auch, um herauszufinden, ob das Load-Balancing auch bei etwas mehr
+Requests noch funktioniert und wie sich das Hystrix-Dashboard dabei verhält. 
+
+|Test | Concurrent Threads    | Wiederholungen    | Fehlerquote |
+|-----| ----------------------|-------------------|-------------|
+|#1   | 2                     | 2500              |0.00 %       |
+|#2   | 500                   | 10                |34.89 %      |
+
+Auffallend îst hier natürlich die hohe Fehlerquote bei Test 2 mit vielen Threads mit jeweils weniger requests.
+
+Folgende Screenshots zeigen grafisch das Hystrix Dashboard von den beiden Tests:
+
+![img hystrix_1][p2]  
+*Bild 2: Hystrix Dashboard Test 1*
+
+![img hystrix_2][p3]  
+*Bild 3: Hystrix Dashboard Test 2*
+
+Die HTML-Reports der beiden Tests können mit folgenden Links aufgerufen werden:  
+
+[Report Test #1][r4]  
+[Report Test #2][r5]
 
 ### Probleme und Herausforderungen
 
@@ -104,7 +128,8 @@ In UserShortlinkController.java wird das Interface ShortLinkClient.java per @Aut
 der Fallbackklasse nicht mehr eindeutig definiert ud kann wahrscheinlich zur Laufzeit nicht korrekt instanziert werden.  
 Lösung:  
 nach mehreren Stunden Suche aufgegeben, wahrscheinlich müsste dafür eine Feign Configuration erstellt werden:
-https://github.com/spring-cloud/spring-cloud-netflix/issues/899
+[Github Issue zum Thema][r2]
+
 
 ### Installationsanleitung
 Projekt von GitHub holen:
@@ -154,10 +179,20 @@ Username: sa
 Password:
 
 #### Referenzen
+##### Literatur & Web
+*[Github Issue zum Thema Fallback/Circuit Breaker][r2]
+*[Apache JMeter][r3]
+
 ##### Bilder
 
 
 
 [p1]: documentation/images/domain_model_urlShortener.jpg?raw=true "Bild 1: Domain Model Url-Shortener"
+[p2]: documentation/images/hystrix_dashboard_test_1.PNG?raw=true "Bild 2: Hystrix Dashboard Test 1"
+[p3]: documentation/images/hystrix_dashboard_test_2.PNG?raw=true "Bild 3: Hystrix Dashboard Test 2"
 
 [r1]: http://localhost:9999/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A9999%2Fturbine.stream&delay=1000&title=Shorty%20Application
+[r2]: https://github.com/spring-cloud/spring-cloud-netflix/issues/899
+[r3]: http://jmeter.apache.org/
+[r4]: https://github.com/schms27/bfh.shorty/blob/master/documentation/tests/JMeter_test_1/index.html
+[r5]: https://github.com/schms27/bfh.shorty/blob/master/documentation/tests/JMeter_test_2/index.html
