@@ -17,4 +17,4 @@ server:
 # Service Monitoring
 turbine:
   clusterNameExpression: new String("default")
-  appConfig: user-shortlink-service
+  appConfig: user-shortlink-service, frontend-service
