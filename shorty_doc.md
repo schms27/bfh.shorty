@@ -194,14 +194,12 @@ Password:
 
 #### Referenzen
 ##### Literatur & Web
-*[Github Issue zum Thema Fallback/Circuit Breaker][r2]
-*[Apache JMeter][r3]
-
-##### Bilder
+- [Github Issue zum Thema Fallback/Circuit Breaker][r2]  
+- [Apache JMeter][r3]
 
 
 
-[p1]: documentation/images/domain_model_urlShortener.jpg?raw=true "Bild 1: Domain Model Url-Shortener"
+[p1]: documentation/images/domain_model_urlShortener.png?raw=true "Bild 1: Domain Model Url-Shortener"
 [p2]: documentation/images/hystrix_dashboard_test_1.PNG?raw=true "Bild 2: Hystrix Dashboard Test 1"
 [p3]: documentation/images/hystrix_dashboard_test_2.PNG?raw=true "Bild 3: Hystrix Dashboard Test 2"
 
