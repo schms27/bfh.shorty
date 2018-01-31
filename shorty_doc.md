@@ -85,9 +85,6 @@ Die folgenden Methoden/API-Calls werden im Hystix Dashboard angezeigt:
 | ----------------------|---------------|
 | /userShortLink        | POST          |
 
-```diff
-- TODO: ergänzen
-```
 
 ### Testing
 Zum Testen der Applikation haben wir einerseits Postman benutzt (API Calls), andererseits haben wir einen
