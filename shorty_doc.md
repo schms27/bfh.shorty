@@ -140,7 +140,10 @@ Diese ID muss zwingend unique sein und kann durch ihre Kürze nicht auf ein tief
 Die Kurze-ID soll beim Einfügen (POST) des Links generiert werden. Dazu haben wir probiert, einen ShortLinkController zu implementieren. Dies erwies sich als einiges komplexer als die Verwendung von CrudRepositories wie bei den anderen Entitäten.
 GET-Anfragen konnte der Controller behandeln (mit Rückgriff auf das zugehörige Repository). Bei POST-Anfragen wurde jedoch die entsprechende Methode nie erreicht/ausgeführt.
 
-Zudem funktionierte der Hal-Browser nur mit dem Repository aber nicht mit dem Controller. Deshalb wurde der Controller wieder auskommentiert, der Vollständigkeit halber aber im Repository belassen. 
+Zudem funktionierte der Hal-Browser nur mit dem Repository aber nicht mit dem Controller. Deshalb wurde der Controller wieder auskommentiert, der Vollständigkeit halber aber im Repository belassen.
+
+
+Eine mögliche Alternative zur zusätzlichen Kurz-ID wäre die Verwendung einer nummerischen (Auto-Increment) ID, die im Kurzlink z.B. in Base64-Codierung angegeben würde, um im Link weniger Zeichen zu benötigen. Da vom ShortLinkService wie erwähnt nicht mehrere Instanzen unabhängig laufen können, wäre dies kein wesentlicher Nachteil gegenüber der UUID.
 
 ### Installationsanleitung
 Projekt von GitHub holen:
