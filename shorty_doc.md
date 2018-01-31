@@ -17,6 +17,11 @@ frontendseitig implementiert werden (z.b. Angular 5 Webapp).
 ![img domain model][p1]  
 *Bild 1: Domain Model Url-Shortener*
 
+#### Aufteilung in Microservices
+Da später für die Weiterleitung von einem ShortLink zur entsprechenden Target-URL ausser dem User immer alle Entitäten benötigt werden, war ein seperater User-Service die einzige sinnvolle Aufteilung des Domain-Modells.
+Zusätzlich haben wir einen user-shortlink-service, der die User mit den von ihnen erstellten Shortlinks zurückgibt. Im realen Anwendungsfall würde dies wohl höchstens Administratoren gebraucht.
+
+
 ### Umgesetzte Services
 Da wir das Backend mit Spring Cloud als Microservice-Architektur umgesetzt haben, wurde die Applikation in die folgenden Services aufgeteilt:
 
@@ -130,6 +135,12 @@ Lösung:
 nach mehreren Stunden Suche aufgegeben, wahrscheinlich müsste dafür eine Feign Configuration erstellt werden:
 [Github Issue zum Thema][r2]
 
+3. Für die ShortLinks sollte zusätzlich zur ID auch ein kurzer Identifier generiert werden. Wenn die UUID verwendet wird, ist der "Shortlink" sonst am Ende länger als das Original.
+Diese ID muss zwingend unique sein und kann durch ihre Kürze nicht auf ein tiefes Kollisionsrisiko zählen. Dass mehrere Instanzen vom ShortLinkService parallel laufen ist somit praktisch ausgeschlossen.
+Die Kurze-ID soll beim Einfügen (POST) des Links generiert werden. Dazu haben wir probiert, einen ShortLinkController zu implementieren. Dies erwies sich als einiges komplexer als die Verwendung von CrudRepositories wie bei den anderen Entitäten.
+GET-Anfragen konnte der Controller behandeln (mit Rückgriff auf das zugehörige Repository). Bei POST-Anfragen wurde jedoch die entsprechende Methode nie erreicht/ausgeführt.
+
+Zudem funktionierte der Hal-Browser nur mit dem Repository aber nicht mit dem Controller. Deshalb wurde der Controller wieder auskommentiert, der Vollständigkeit halber aber im Repository belassen. 
 
 ### Installationsanleitung
 Projekt von GitHub holen:
